@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .outer {
+        width: 500px;
+        height: 500px;
+        border-radius: 100%;
+        border: 1px solid #ccc;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-top: -250px;
+        margin-left: -250px;
+        animation: innerAni 12s linear 0s infinite forwards;
+      }
+
+      .outer::after {
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        position: absolute;
+        left: 62px;
+        top: 62px;
+        /*深蓝*/
+        background: radial-gradient(
+          circle at 35% 35%,
+          #a88875,
+          #8b6046,
+          #8b6046
+        );
+        animation: innerAni 1.5s linear 0s infinite forwards;
+      }
+
+      .middle {
+        width: 320px;
+        height: 320px;
+        border-radius: 100%;
+        border: 1px solid #ccc;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-top: -160px;
+        margin-left: -160px;
+        animation: middleAni 8s linear 0s infinite forwards;
+      }
+
+      .earth {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #999;
+        border-radius: 100%;
+        animation: innerAni 5s linear 0s infinite forwards;
+      }
+
+      .earth::before {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        /*深蓝*/
+        background: radial-gradient(
+          circle at 35% 35%,
+          #83b6e8,
+          #5a9de0,
+          #569be0
+        );
+        animation: innerAni 1.5s linear 0s infinite forwards;
+      }
+
+      .moon {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        background: radial-gradient(
+          circle at 35% 35%,
+          #ae97be,
+          #9374a9,
+          #8967a1
+        );
+      }
+
+      @keyframes middleAni {
+        0% {
+          transform: rotateZ(0deg);
+        }
+        100% {
+          transform: rotateZ(360deg);
+        }
+      }
+
+      .inner {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        border: 1px solid #ccc;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        animation: innerAni 2s linear 0s infinite forwards;
+      }
+
+      .inner::before {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: radial-gradient(
+          circle at 35% 35%,
+          #f58e7f,
+          #f0624f,
+          #f05e4a
+        );
+      }
+
+      .inner::after {
+        width: 94px;
+        height: 94px;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        border: 1px solid transparent;
+        border-top: 1px solid #fff;
+        transform: rotateZ(45deg);
+        opacity: 0.3;
+        animation: innerAni 2s linear 0s infinite forwards;
+      }
+
+      @keyframes innerAni {
+        0% {
+          transform: rotateZ(45deg);
+        }
+        100% {
+          transform: rotateZ(415deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="middle">
+        <div class="earth">
+          <div class="moon"></div>
+        </div>
+        <div class="inner"></div>
+      </div>
+    </div>
+  </body>
+</html>

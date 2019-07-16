@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .ball {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background: radial-gradient(circle at 35% 35%, #fff, #aaeaea, #a3e8e8);
+        position: relative;
+      }
+
+      .ball::after {
+        display: block;
+        width: 44px;
+        height: 44px;
+        border: 1px solid transparent;
+        border-top: 1px solid #fff;
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        content: "";
+        border-radius: 100%;
+        transform: rotateZ(55deg);
+        animation: ballAni 0.5s linear 0s infinite forwards;
+        opacity: 0.6;
+      }
+
+      @keyframes ballAni {
+        0% {
+          transform: rotateZ(55deg);
+        }
+
+        100% {
+          transform: rotateZ(415deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="ball"></div>
+  </body>
+</html>
