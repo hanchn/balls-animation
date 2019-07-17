@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        float: left;
+        background: radial-gradient(
+          circle at 35% 35%,
+          #648c9b,
+          #276074,
+          #205b70
+        );
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 0.4s ease-out 0s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball"></div>
+    <div class="ceil"></div>
+  </body>
+</html>
+
+<script>
+  let state = {
+    vx: 8,
+    vy: 8,
+    g: 10,
+    x: 0,
+    y: 0,
+    ceil: 800
+  };
+  let ball = document.querySelector(".ball");
+  ball.style = `left: ${state.x}px; top: ${state.y}px;`;
+  setInterval(() => {
+    let { x, y, vx, vy, g, ceil } = state;
+    state.x += vx;
+    state.y += vy;
+    state.vy += g;
+
+    if (state.y >= ceil) {
+      state.y = ceil;
+      state.vy = -state.vy * 0.85;
+    }
+
+    ball.style = `left: ${state.x}px; top: ${state.y}px;`;
+  }, 1000 / 24);
+</script>
